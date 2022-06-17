@@ -10,8 +10,8 @@
 ## Technology Used
 - Programming Languages: Python, JavaScript
 - Frameworks: Flask
-- Hosting: DigitalOcean
-- Cloud Storage: DigitalOcean Spaces
+- Hosting: Heroku, AWS EC2
+- Cloud Storage: AWS S3
 - Databases: MySql
 - Designing: Figma
 
