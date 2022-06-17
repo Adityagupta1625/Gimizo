@@ -16,4 +16,4 @@
 - Designing: Figma
 
 ## Live Link
-- https://gimizo.com/
+- https://gimizo.herokuapp.com/
