@@ -1,0 +1,105 @@
+
+:root{
+  --ps-g-blue: linear-gradient(242.7deg, #00A0FF 7.36%, #00A1FF 8.12%, #00BEFF 35.54%, #00D2FF 62.85%, #00DFFF 89.73%, #00E3FF 115.75%);
+  --ps-g-green: linear-gradient(142.39deg, #32A071 -38.78%, #2DA771 -33.87%, #15CF74 -4.91%, #06E775 18.21%, #00F076 32.37%);
+  --ps-g-red: linear-gradient(217.62deg, #FF3A44 16.07%, #C31162 175.33%);
+  --ps-g-yellow: linear-gradient(270deg, #FFE000 -7.59%, #FFBD00 89.79%, #FFA500 176.94%, #FF9C00 230.52%);
+  --ps-c-blue:#3BCCFF;
+  --ps-c-green:#48FF48;
+  --ps-c-red:#FF3333;
+  --ps-c-yellow:#FFD400;
+}
+
+.bg-grad {
+  height: 100%;
+  background: radial-gradient(
+      68.72% 56.75% at 95.89% 2.11%,
+      rgba(247, 247, 253, 0.2) 0%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    #051638;
+}
+body{
+  user-select: none;
+}
+
+.main-bg {
+  visibility: hidden;
+}
+
+.wave {
+  visibility: hidden;
+}
+
+.content-about {
+  margin-top: 15vh;
+  z-index: 2;
+  color: white;
+  padding-inline: 2em;
+}
+
+.content-about h1 {
+  text-align: left;
+  font-size: 3rem;
+}
+
+.content-about .about-line {
+  height: 4px;
+  border-radius: 20px;
+  width: 30%;
+  background: var(--ps-g-red);
+}
+
+.content-about p {
+  margin-top: 3em;
+  margin-bottom: 2em;
+  font-size: 1.3rem;
+  font-weight: 300;
+  line-height: 1.8;
+  text-align: left;
+}
+/* social links */
+.social-wrapper{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.social-wrapper .social-icos{
+  padding-bottom: 1em;
+}
+.social-wrapper .social-icos a{
+  text-decoration: none;
+  color: var(--light);
+  font-size: 1.5rem;
+  margin-inline:10px;
+  transition: all 200ms ease-in-out;
+}
+.social-wrapper .social-icos a:hover, .social-wrapper .social-icos a:active{
+  color: var(--ps-c-yellow);
+}
+/* Footer */
+.made-with-love {
+  width: 100%;
+  text-align: center;
+  font-size: 0.8rem;
+  z-index: 9999;
+  color: #fff;
+  position: relative;
+  padding-bottom: 1em;
+}
+.made-with-love i {
+  font-style: normal;
+  color: var(--ps-c-red);
+  font-size: 1.5rem;
+  position: relative;
+  top: 2px;
+}
+.made-with-love a {
+  color: #fff;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+.made-with-love a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gimizo | About Us</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet" href="../static/css/menu.css">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="../static/css/about-us.css">
+</head>
+
+<body>
+  <div class="cointainer">
+    <!-- Menu Button -->
+    <div class="menu-btn" onclick="open_menu();">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    <!-- End of Menu Button -->
+    <!-- Side Menu -->
+    <div class="form-backdrop" id="nav-menu" style="display: none">
+      <div id="menu" onclick="close_menu();z=0;">
+        <div class="menu-content w3-animate-left" onclick="keep_menu_open();z=1;">
+          <div class="top-bar">
+            <div class="menu-btn" onclick="z=0;close_menu();">
+              <div class="line"></div>
+              <div class="line"></div>
+            </div>
+          </div>
+          <ul class="w3-animate-left">
+            <li class="menu-link"><a href="/">Home</a></li>
+            <li class="menu-link"><a href="/contact">Contact Us</a></li>
+            <li class="menu-link selected"><a href="/about">About Us</a></li>
+          </ul>
+
+          <div class="extra-links w3-animate-left">
+            <div class="google_signin">
+              <div id="my-signin2"></div>
+              <script>
+                function onSuccess(googleUser) {
+                  console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+                }
+                function onFailure(error) {
+                  console.log(error);
+                }
+                function renderButton() {
+                  gapi.signin2.render('my-signin2', {
+                    'scope': 'profile email',
+                    'width': 240,
+                    'height': 50,
+                    'longtitle': true,
+                    'theme': 'dark',
+                    'onsuccess': onSuccess,
+                    'onfailure': onFailure
+                  });
+                }
+              </script>
+            </div>
+            <a href="/privacy">Privacy Policy</a>
+
+            <a href="/terms">Terms & conditions</a>
+          </div>
+        </div>
+      </div>
+      <script>
+        var menu = document.querySelector("#menu");
+        var cointainer = document.querySelector(".cointainer");
+        window.addEventListener("load", () => {
+          let widthNow = cointainer.clientWidth;
+          menu.setAttribute("style", `width:${widthNow}px;`);
+        });
+        window.addEventListener("resize", () => {
+          let widthNow = cointainer.clientWidth;
+          menu.setAttribute("style", `width:${widthNow}px;`);
+        });
+      </script>
+    </div>
+    <!-- End of Side Menu -->
+    <!-- Background Gradient -->
+    <div class="bg-grad">
+      <div class="main-bg">
+      </div>
+      <div class="wave">
+        <svg width="414" height="49" viewBox="0 0 414 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0 31.6447L13.8 35.6003C27.6 39.5559 55.2 47.4671 82.8 48.7774C110.4 50.1866 138 44.7476 165.6 36.9106C193.2 28.9253 220.8 18.5418 248.4 14.5121C276 10.6307 303.6 13.1029 331.2 17.1327C358.8 21.0141 386.4 26.453 400.2 28.9994L414 31.6447V0H400.2C386.4 0 358.8 0 331.2 0C303.6 0 276 0 248.4 0C220.8 0 193.2 0 165.6 0C138 0 110.4 0 82.8 0C55.2 0 27.6 0 13.8 0H0V31.6447Z"
+            fill="#051638" />
+        </svg>
+      </div>
+    </div>
+    <!-- Content -->
+    <div class="content-about">
+      <h1>About us</h1>
+      <div class="about-line"></div>
+      <p>Gimizo is a gaming startup aiming to revolutionize the mobile gaming industry. Through Gimizo, users could
+        explore various gameplay and choose which game to play. The gameplay videos are 100% real and user could
+        select a game according to their interest. Users could see how actually the game look like, its features,
+        graphics, comtrols before downloading the game. Our vision is to create a community of gaming enthusiasts and
+        build products to make gaming experience more joyful.</p>
+        <div class="social-wrapper">
+          <div class="social-icos">
+            <a href="https://m.facebook.com/106168938412235/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com/mwlite/company/gimizo" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com/gimizo_com" target="_blank"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      <!-- follow me template -->
+      <div class="made-with-love">
+        Made with
+        <i>♥</i> by
+        <a href="#">Team Gimizo</a>
+      </div>
+    </div>
+  </div>
+  <script src="../static/js/app.js"></script>
+</body>
+
+</html>

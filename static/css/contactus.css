@@ -1,0 +1,344 @@
+
+:root{
+  --ps-g-blue: linear-gradient(242.7deg, #00A0FF 7.36%, #00A1FF 8.12%, #00BEFF 35.54%, #00D2FF 62.85%, #00DFFF 89.73%, #00E3FF 115.75%);
+  --ps-g-green: linear-gradient(142.39deg, #32A071 -38.78%, #2DA771 -33.87%, #15CF74 -4.91%, #06E775 18.21%, #00F076 32.37%);
+  --ps-g-red: linear-gradient(217.62deg, #FF3A44 16.07%, #C31162 175.33%);
+  --ps-g-yellow: linear-gradient(270deg, #FFE000 -7.59%, #FFBD00 89.79%, #FFA500 176.94%, #FF9C00 230.52%);
+  --ps-c-blue:#3BCCFF;
+  --ps-c-green:#48FF48;
+  --ps-c-red:#FF3333;
+  --ps-c-yellow:#FFD400;
+
+}
+
+body {
+  font-family: "RobotoDraft", "Roboto", sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-bottom: 0;
+  min-height: 100vh;
+  user-select: none;
+}
+
+.card-container {
+  position: relative;
+  max-width: 460px;
+  width: 100%;
+  margin: 0 auto 100px;
+  margin-top: 5vh;
+}
+.container{
+  width: 414px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow-x: hidden;
+  border-top:1px solid var(--dark);
+}
+.bg-grad {
+  height: 100%;
+  background: radial-gradient(
+      68.72% 56.75% at 95.89% 2.11%,
+      rgba(247, 247, 253, 0.2) 0%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    #051638;
+}
+.main-bg {
+  visibility: hidden;
+}
+.wave {
+  visibility: hidden;
+}
+.card-container.active .ccard:first-child {
+  background: #f2f2f2;
+  margin: 0 15px;
+}
+.card-container.active .ccard:nth-child(2) {
+  background: #fafafa;
+  margin: 0 10px;
+}
+.card-container .ccard {
+  position: relative;
+  background: transparent;
+  border-radius: 5px;
+  padding: 60px 0 40px 0;
+  transition: 0.3s ease;
+}
+.card-container .ccard:first-child {
+  background: #fafafa;
+  height: 10px;
+  border-radius: 5px 5px 0 0;
+  margin: 0 10px;
+  padding: 0;
+}
+.card-container .ccard .title {
+  position: relative;
+  z-index: 1;
+  padding: 0 0.7em;
+  color: var(--light);
+  font-size: 3rem;
+}
+.card-container .ccard .contact-us-line{
+  height: 4px;
+  width: 30%;
+  font-size: 3rem;
+  margin: 0 0 0.7em 0.7em ;
+  background: var(--ps-g-red);
+}
+.card-container .ccard .input-container {
+  position: relative;
+  margin: 0 60px 50px;
+}
+.card-container .ccard .input-container input {
+  outline: none;
+  z-index: 1;
+  position: relative;
+  background: none;
+  width: 100%;
+  height: 60px;
+  border: 0;
+  color: var(--light);
+  font-size: 24px;
+  font-weight: 400;
+}
+.card-container .ccard .input-container input:focus ~ label {
+  color: rgba(247, 247, 253, 1);
+  transform: translate(-12%, -50%) scale(0.75);
+}
+.card-container .ccard .input-container input:focus ~ .bar:before,
+.card-container .ccard .input-container input:focus ~ .bar:after {
+  width: 50%;
+}
+.card-container .ccard .input-container input:valid ~ label {
+  color: rgba(247, 247, 253, 0.5);
+  transform: translate(-12%, -50%) scale(0.75);
+}
+.card-container .ccard .input-container label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: rgba(247, 247, 253, 0.5);
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 60px;
+  transition: 0.2s ease;
+}
+.card-container .ccard .input-container .bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: rgba(247, 247, 253, 0.5);
+  width: 100%;
+  height: 1px;
+}
+.card-container .ccard .input-container .bar:before,
+.card-container .ccard .input-container .bar:after {
+  content: "";
+  position: absolute;
+  background: var(--ps-g-blue);
+  width: 0;
+  height: 2px;
+  transition: 0.2s ease;
+}
+.card-container .ccard .input-container .bar:before {
+  left: 50%;
+}
+.card-container .ccard .input-container .bar:after {
+  right: 50%;
+}
+.card-container .ccard .button-container {
+  margin: 0 60px;
+  text-align: center;
+}
+.card-container .ccard .button-container button {
+  outline: 0;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  background: 0;
+  width: 240px;
+  border: 2px solid #e3e3e3;
+  padding: 20px 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+.card-container .ccard .button-container button span {
+  position: relative;
+  z-index: 1;
+  color: var(--light);
+  transition: 0.3s ease;
+}
+.card-container .ccard .button-container button:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  background: var(--ps-g-blue);
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  margin: -15px 0 0 -15px;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+.card-container .ccard .button-container button:hover,
+.card-container .ccard .button-container button:active,
+.card-container .ccard .button-container button:focus {
+  border-color: var(--ps-c-blue);
+}
+.card-container .ccard .button-container button:hover span,
+.card-container .ccard .button-container button:active span,
+.card-container .ccard .button-container button:focus span {
+  color: var(--ps-c-blue);
+}
+.card-container .ccard .button-container button:active span,
+.card-container .ccard .button-container button:focus span {
+  color: var(--dark);
+}
+.card-container .ccard .button-container button:active:before,
+.card-container .ccard .button-container button:focus:before {
+  opacity: 1;
+  transform: scale(10);
+}
+.card-container .ccard .footer {
+  margin: 40px 0 0;
+  color: #d3d3d3;
+  font-size: 24px;
+  font-weight: 300;
+  text-align: center;
+}
+.card-container .ccard .footer a {
+  color: inherit;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+.card-container .ccard .footer a:hover {
+  color: #bababa;
+}
+.card-container .ccard.alt {
+  position: absolute;
+  top: 40px;
+  right: -70px;
+  z-index: 10;
+  width: 140px;
+  height: 140px;
+  background: none;
+  border-radius: 100%;
+  box-shadow: none;
+  padding: 0;
+  transition: 0.3s ease;
+  /* Title */
+  /* Input */
+  /* Button */
+}
+.card-container .ccard.alt .title,
+.card-container .ccard.alt .input-container,
+.card-container .ccard.alt .button-container {
+  left: 100px;
+  opacity: 0;
+  visibility: hidden;
+}
+.card-container .ccard.alt .title {
+  position: relative;
+  border-color: #ffffff;
+  color: #ffffff;
+}
+.card-container .ccard.alt .title .close {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 60px;
+  display: inline;
+  color: #ffffff;
+  font-size: 58px;
+  font-weight: 400;
+}
+.card-container .ccard.alt .title .close:before {
+  content: "×";
+}
+.card-container .ccard.alt .input-container input {
+  color: #ffffff;
+}
+.card-container .ccard.alt .input-container input:focus ~ label {
+  color: #ffffff;
+}
+.card-container .ccard.alt .input-container input:focus ~ .bar:before,
+.card-container .ccard.alt .input-container input:focus ~ .bar:after {
+  background: #ffffff;
+}
+.card-container .ccard.alt .input-container input:valid ~ label {
+  color: #ffffff;
+}
+.card-container .ccard.alt .input-container label {
+  color: rgba(255, 255, 255, 0.8);
+}
+.card-container .ccard.alt .input-container .bar {
+  background: rgba(255, 255, 255, 0.8);
+}
+.card-container .ccard.alt .button-container button {
+  width: 100%;
+  background: #ffffff;
+  border-color: #ffffff;
+}
+.card-container .ccard.alt .button-container button span {
+  color: var(--ps-c-yellow);
+}
+.card-container .ccard.alt .button-container button:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+.card-container .ccard.alt .button-container button:active:before,
+.card-container .ccard.alt .button-container button:focus:before {
+  display: none;
+}
+
+@-webkit-keyframes buttonFadeInUp {
+  0% {
+    bottom: 30px;
+    opacity: 0;
+  }
+}
+
+@keyframes buttonFadeInUp {
+  0% {
+    bottom: 30px;
+    opacity: 0;
+  }
+}
+
+.card-container .ccard .input-container textarea {
+  outline: none;
+  padding-top: 0.5em;
+  z-index: 1;
+  position: relative;
+  background: none;
+  width: 100%;
+  border: 0;
+  color: var(--light);
+  font-size: 24px;
+  resize: none;
+  font-weight: 400;
+}
+textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.card-container .ccard .input-container textarea:focus ~ label {
+  color: rgba(247, 247, 253, 1);
+  transform: translate(-12%, -50%) scale(0.75);
+}
+.card-container .ccard .input-container textarea:focus ~ .bar:before,
+.card-container .ccard .input-container textarea:focus ~ .bar:after {
+  width: 50%;
+}
+.card-container .ccard .input-container textarea:valid ~ label {
+  color: rgba(247, 247, 253, 1);
+  transform: translate(-12%, -50%) scale(0.75);
+}

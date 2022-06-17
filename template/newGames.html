@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta charset="UTF-8" />
+    <script src="\static/js/video.js"></script>
+
+    <script src="\static/js/video-size.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="shortcut icon" href="../static/asset/ico/Favicon.svg" />
+    <link rel="icon" href="../static/asset/ico/Favicon.svg" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="stylesheet" href="../static/css/menu.css" />
+    <link rel="stylesheet" href="../static/css/new-games.css" />
+    <title>Gimizo: Discover best Play Store games</title>
+  </head>
+
+  <body
+    onclick="HideContent();HideReportfrm();HideSharefrm();"
+    style="cursor: pointer; -webkit-tap-highlight-color: transparent"
+    class="body"
+  >
+    <div class="cointainer">
+      <!-- Background Gradient -->
+      <div class="bg-grad">
+        <div class="main-bg"></div>
+        <div class="wave">
+          <svg
+            width="414"
+            height="49"
+            viewBox="0 0 414 49"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 31.6447L13.8 35.6003C27.6 39.5559 55.2 47.4671 82.8 48.7774C110.4 50.1866 138 44.7476 165.6 36.9106C193.2 28.9253 220.8 18.5418 248.4 14.5121C276 10.6307 303.6 13.1029 331.2 17.1327C358.8 21.0141 386.4 26.453 400.2 28.9994L414 31.6447V0H400.2C386.4 0 358.8 0 331.2 0C303.6 0 276 0 248.4 0C220.8 0 193.2 0 165.6 0C138 0 110.4 0 82.8 0C55.2 0 27.6 0 13.8 0H0V31.6447Z"
+              fill="#051638"
+            />
+          </svg>
+        </div>
+      </div>
+      <!-- Menu Button -->
+      <div class="menu-btn" onclick="open_menu();">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <!-- Side Menu -->
+      <div class="form-backdrop" id="nav-menu" style="display: none">
+        <div id="menu" onclick="z=0;close_menu();">
+          <div
+            class="menu-content w3-animate-left"
+            onclick="keep_menu_open();z=1;"
+          >
+            <div class="top-bar">
+              <div class="menu-btn" onclick="z=0;close_menu();">
+                <div class="line"></div>
+                <div class="line"></div>
+              </div>
+            </div>
+            <ul class="w3-animate-left">
+              <li class="menu-link selected"><a href="/">Home</a></li>
+              <li class="menu-link"><a href="/contact">Contact Us</a></li>
+              <li class="menu-link"><a href="/about">About Us</a></li>
+            </ul>
+
+            <div class="extra-links w3-animate-left">
+              <a href="/privacy">Privacy Policy</a>
+              <a href="/terms">Terms & conditions</a>
+            </div>
+          </div>
+        </div>
+        <script>
+          var menu = document.querySelector("#menu");
+          var cointainer = document.querySelector(".cointainer");
+          window.addEventListener("load", () => {
+            let widthNow = cointainer.clientWidth;
+            menu.setAttribute("style", `width:${widthNow}px;`);
+          });
+          window.addEventListener("resize", () => {
+            let widthNow = cointainer.clientWidth;
+            menu.setAttribute("style", `width:${widthNow}px;`);
+          });
+        </script>
+      </div>
+      <!-- End of Side Menu -->
+      <!--Report form-->
+      <div
+        class="form-Backdrop cointainer"
+        id="reportfrm"
+        style="display: none"
+      >
+        <div class="form" onclick="j=1;">
+          <h2 class="__heading">Report Video</h2>
+          <form action="/report" method="POST" class="__report" id="report">
+            <input
+              type="radio"
+              id="1"
+              name="report"
+              value="FakeGamePlay"
+              checked
+            />
+            <label for="1" class="check">Fake Gameplay</label>
+            <input type="radio" id="2" name="report" value="PoorQuality" />
+            <label for="2" class="check">Poor Quality</label>
+            <input type="radio" id="3" name="report" value="InappropiateLink" />
+            <label for="3" class="check">Inappropiate Link</label>
+            <input type="radio" id="4" name="report" value="VideoLaging" />
+            <label for="4" class="check">Video laging</label>
+            <input type="radio" id="5" name="report" value="Others" />
+            <label for="5" class="check">Others</label>
+            <hr />
+            <div class="__btns">
+              <input type="hidden" id="repname" name="gamename" />
+              <input type="hidden" id="repname2" name="category" />
+              <button
+                value="Cancel"
+                class="reporting cancel"
+                id="cancelbtn"
+                onclick="HideReportfrm();"
+              >
+                Cancel
+              </button>
+              <input
+                type="submit"
+                value="Report"
+                class="reporting report-submit"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+      <!--Share form-->
+      <section
+        class="form-Backdrop cointainer"
+        id="sharefrm"
+        style="display: none"
+      >
+        <div class="form" onclick="k=1;">
+          <div
+            class="tag-remove"
+            id="closebtn"
+            onclick="k=0;HideSharefrm();"
+          ></div>
+          <h2 class="__heading">Share Video</h2>
+          <form class="__share" id="share">
+            <a
+              id="whatsappshare"
+              -action="share/whatsapp/share"
+              target="_blank"
+            >
+              <img
+                class="share-logo1"
+                id="whatsapp"
+                src="https://play-lh.googleusercontent.com/bYtqbOcTYOlgc6gqZ2rwb8lptHuwlNE75zYJu6Bn076-hTmvd96HH-6v7S0YUAAJXoJN=s180-rw"
+                alt="Img"
+            /></a>
+            <a id="telegramshare" target="_blank">
+              <img
+                class="share-logo2"
+                id="telegram"
+                src="https://play-lh.googleusercontent.com/ZU9cSsyIJZo6Oy7HTHiEPwZg0m2Crep-d5ZrfajqtsH-qgUXSqKpNA2FpPDTn-7qA5Q=s180-rw"
+                alt="Img"
+            /></a>
+            <a id="facebookshare" target="_blank">
+              <img
+                class="share-logo3"
+                id="facebook"
+                src="https://play-lh.googleusercontent.com/ccWDU4A7fX1R24v-vvT480ySh26AYp97g1VrIB_FIdjRcuQB2JP2WdY7h_wVVAeSpg=s180-rw"
+                alt="Img"
+            /></a>
+            <div class="logo-names">
+              <label for="whatsapp" class="logo-name1">Whatsapp</label>
+              <label for="telegram" class="logo-name2">Telegram</label>
+              <label for="facebook" class="logo-name3">Facebook</label>
+            </div>
+            <div class="foot-link">
+              <div class="copy-link">
+                <input type="text" class="copy-text" id="shareval" readonly />
+                <div class="copy-btn" onclick="clipboard();copyToClipboard();">
+                  Copy
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+      <!-- logo -->
+      <div class="logo-bg">
+        <div class="logo">
+          <div class="css-1u8s3kb">
+            <div style="transform: scale(1)">
+              <svg
+                width="307"
+                height="77"
+                viewBox="0 0 307 77"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M277 20C267.074 20 259 28.0737 259 38C259 47.9245 267.074 56 277 56C286.924 56 295 47.9245 295 38C295 28.0737 286.924 20 277 20ZM278.019 52.2276C272.952 49.5035 269.505 44.1576 269.505 38C269.505 31.8461 272.95 26.4984 278.017 23.7761C285.416 24.3012 291.276 30.4719 291.276 38C291.276 45.5281 285.416 51.695 278.019 52.2276Z"
+                  fill="#F7F7FD"
+                />
+                <path
+                  d="M136.297 31.2186C135.643 30.014 134.696 29.1019 133.457 28.4823C132.252 27.8284 130.824 27.5014 129.172 27.5014C126.315 27.5014 124.026 28.4479 122.305 30.3409C120.584 32.1995 119.724 34.6949 119.724 37.827C119.724 41.1656 120.619 43.7814 122.409 45.6744C124.233 47.533 126.728 48.4623 129.895 48.4623C132.063 48.4623 133.887 47.9116 135.367 46.8102C136.882 45.7088 137.983 44.1256 138.671 42.0605H127.468V35.5553H146.674V43.7642C146.02 45.967 144.901 48.0149 143.318 49.9079C141.769 51.8009 139.79 53.3326 137.381 54.5028C134.971 55.673 132.252 56.2581 129.223 56.2581C125.644 56.2581 122.443 55.4837 119.621 53.9349C116.833 52.3516 114.647 50.166 113.064 47.3781C111.515 44.5902 110.741 41.4065 110.741 37.827C110.741 34.2474 111.515 31.0637 113.064 28.2758C114.647 25.4535 116.833 23.2679 119.621 21.7191C122.409 20.1358 125.592 19.3442 129.172 19.3442C133.509 19.3442 137.157 20.394 140.117 22.4935C143.111 24.593 145.09 27.5014 146.054 31.2186H136.297ZM160.392 19.7572V56H151.564V19.7572H160.392ZM207.834 19.7572V56H199.006V34.2646L190.9 56H183.776L175.618 34.213V56H166.79V19.7572H177.219L187.39 44.8484L197.457 19.7572H207.834ZM223.011 19.7572V56H214.183V19.7572H223.011ZM238.805 48.7721H254.397V56H228.79V49.2884L244.278 26.9851H228.79V19.7572H254.397V26.4688L238.805 48.7721Z"
+                  fill="#F7F7FD"
+                />
+                <path
+                  d="M50.6357 0H19.0696C12.9549 0 8 4.95469 8 11.0694V42.6371C8 48.7518 12.9549 53.7099 19.0696 53.7099H61.7085V48.2591V11.0694C61.7085 4.95469 56.75 0 50.6357 0Z"
+                  fill="#F7F7FD"
+                />
+                <path
+                  d="M50.6357 0H19.0696C12.9549 0 8 4.95469 8 11.0694V42.6371C8 48.7518 12.9549 53.7099 19.0696 53.7099H61.7085V48.2591V11.0694C61.7085 4.95469 56.75 0 50.6357 0Z"
+                  fill="url(#paint0_linear)"
+                />
+                <path
+                  d="M90.812 21.1907H71.7004C67.9993 21.1907 64.9944 24.1926 64.9944 27.8902V47.0038V53.7099H90.812C94.5165 53.7099 97.5149 50.7079 97.5149 47.0038V27.8902C97.5149 24.1926 94.5165 21.1907 90.812 21.1907Z"
+                  fill="#F7F7FD"
+                />
+                <path
+                  d="M90.812 21.1907H71.7004C67.9993 21.1907 64.9944 24.1926 64.9944 27.8902V47.0038V53.7099H90.812C94.5165 53.7099 97.5149 50.7079 97.5149 47.0038V27.8902C97.5149 24.1926 94.5165 21.1907 90.812 21.1907Z"
+                  fill="url(#paint1_linear)"
+                />
+                <path
+                  d="M79.4991 57.7268C77.4183 57.7268 68.7626 57.7268 68.7626 57.7268H64.9945V72.2318C64.9945 74.3122 66.6836 75.9999 68.7626 75.9999H79.4991C81.5799 75.9999 83.2659 74.3122 83.2659 72.2318V61.4984C83.2659 59.4142 81.5799 57.7268 79.4991 57.7268Z"
+                  fill="#2BA84A"
+                />
+                <path
+                  d="M79.4991 57.7268C77.4183 57.7268 68.7626 57.7268 68.7626 57.7268H64.9945V72.2318C64.9945 74.3122 66.6836 75.9999 68.7626 75.9999H79.4991C81.5799 75.9999 83.2659 74.3122 83.2659 72.2318V61.4984C83.2659 59.4142 81.5799 57.7268 79.4991 57.7268Z"
+                  fill="url(#paint2_linear)"
+                />
+                <path
+                  d="M79.4991 57.7268C77.4183 57.7268 68.7626 57.7268 68.7626 57.7268H64.9945V72.2318C64.9945 74.3122 66.6836 75.9999 68.7626 75.9999H79.4991C81.5799 75.9999 83.2659 74.3122 83.2659 72.2318V61.4984C83.2659 59.4142 81.5799 57.7268 79.4991 57.7268Z"
+                  fill="url(#paint3_linear)"
+                />
+                <path
+                  d="M61.7087 57.7268H52.3619C51.0208 57.7268 49.9335 58.8159 49.9335 60.1538V67.0785C49.9335 68.4165 51.0208 69.5056 52.3619 69.5056H59.28C60.6227 69.5056 61.7087 68.4165 61.7087 67.0785V60.1538V57.7268Z"
+                  fill="#F7F7FD"
+                />
+                <path
+                  d="M61.7087 57.7268H52.3619C51.0208 57.7268 49.9335 58.8159 49.9335 60.1538V67.0785C49.9335 68.4165 51.0208 69.5056 52.3619 69.5056H59.28C60.6227 69.5056 61.7087 68.4165 61.7087 67.0785V60.1538V57.7268Z"
+                  fill="url(#paint4_linear)"
+                />
+                <defs>
+                  <linearGradient
+                    id="paint0_linear"
+                    x1="54.5"
+                    y1="49"
+                    x2="-63.9875"
+                    y2="-77.5117"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#00A0FF" />
+                    <stop offset="0.007" stop-color="#00A1FF" />
+                    <stop offset="0.26" stop-color="#00BEFF" />
+                    <stop offset="0.512" stop-color="#00D2FF" />
+                    <stop offset="0.76" stop-color="#00DFFF" />
+                    <stop offset="1" stop-color="#00E3FF" />
+                  </linearGradient>
+                  <linearGradient
+                    id="paint1_linear"
+                    x1="53"
+                    y1="62.5"
+                    x2="88.0004"
+                    y2="30.0004"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#32A071" />
+                    <stop offset="0.069" stop-color="#2DA771" />
+                    <stop offset="0.476" stop-color="#15CF74" />
+                    <stop offset="0.801" stop-color="#06E775" />
+                    <stop offset="1" stop-color="#00F076" />
+                  </linearGradient>
+                  <linearGradient
+                    id="paint2_linear"
+                    x1="80.7527"
+                    y1="60.9899"
+                    x2="55.8354"
+                    y2="93.3145"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#FF3A44" />
+                    <stop offset="1" stop-color="#C31162" />
+                  </linearGradient>
+                  <linearGradient
+                    id="paint3_linear"
+                    x1="91.5001"
+                    y1="80"
+                    x2="64.0001"
+                    y2="52"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#FFE000" />
+                    <stop offset="0.409" stop-color="#FFBD00" />
+                    <stop offset="0.775" stop-color="#FFA500" />
+                    <stop offset="1" stop-color="#FF9C00" />
+                  </linearGradient>
+                  <linearGradient
+                    id="paint4_linear"
+                    x1="57.4999"
+                    y1="64"
+                    x2="47.9981"
+                    y2="71.9979"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#FF3A44" />
+                    <stop offset="1" stop-color="#C31162" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <p>A new way to discover Play Store mobile games.</p>
+      </div>
+      <!-- New Games eader -->
+      <div class="nm-header">
+        <h1>New Games</h1>
+      </div>
+      <!-- cards-->
+      <div class="cards">
+        {% for i in list %}
+        <div class="card">
+          <!-- top Details -->
+          <div class="details-bar">
+            <div class="text_ico">
+              <img class="game-ico" src="{{i[11]}}" alt="DP" />
+              <div class="text">
+                <h2>{{i[1]}}</h2>
+                <div class="game-numbers">
+                  <div>
+                    {% if i[13] != "0" %}
+                    <p class="size">{{i[13]}}</p>
+                    {% endif %}
+                  </div>
+                  <p class="dwns">{{i[7]}}</p>
+                </div>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="more"
+              id="{{i[9]}}"
+              value="{{i[7]}}"
+              onclick="ShowReportfrm(this.id,this.value);"
+            >
+              <div class="circle"></div>
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </button>
+          </div>
+          <div class="game-video" id="scrollcheck" value="{{i[3]}}">
+            <video class="backdrop-video" src="{{i[3]}}" preload="none"></video>
+            <video class="impvideo" src="{{i[3]}}" preload="none"></video>
+            <div class="play_arrow">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="#FFFFFF"
+              >
+                <path
+                  d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"
+                />
+              </svg>
+            </div>
+            <div id="sound"></div>
+          </div>
+          <div class="btns">
+            <a href="{{i[2]}}" target="_blank">
+              <button
+                id="btn"
+                type="submit"
+                value="Install Now"
+                class="btn play-now"
+              >
+                <img
+                  src="../static/asset/ico/Play-store-icon.svg"
+                  alt="Play-store-icon"
+                />
+                <p>Play Now</p>
+              </button></a
+            >
+            <a
+              id="https://gimizo.com/share/{{i[7]}}_{{i[9]}}"
+              onclick="ShowSharefrm(this.id);"
+            >
+              <button id="btn" type="submit" class="btn share">
+                <img
+                  src="../static/asset/ico/Share-icon.svg"
+                  alt="Play-store-icon"
+                />
+                <p>Share</p>
+              </button></a
+            >
+          </div>
+        </div>
+        {%endfor%}
+      </div>
+      <div id="snackbar">Copied to clipboard</div>
+    </div>
+    
+  <script src="\static/js/app.js"></script>
+  <script
+    src="https://apis.google.com/js/platform.js?onload=renderButton"
+    async
+    defer
+  ></script>
+
+  <script src="\static/js/dropdown.js"></script>
+  <script src="\static/js/forms.js"></script>
+  </body>
+</html>

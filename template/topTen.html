@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../static/asset/ico/Favicon.svg" />
+    <link rel="icon" href="../static/asset/ico/Favicon.svg" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gimizo | Top 10</title>
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="stylesheet" href="../static/css/menu.css" />
+    <link rel="stylesheet" href="../static/css/about-us.css">
+    <link rel="stylesheet" href="../static/css/top10.css" />
+</head>
+
+<body>
+    <div class="cointainer">
+        <!-- Background -->
+        <div class="bg-grad">
+            <div class="main-bg"></div>
+            <div class="wave">
+                <svg width="414" height="49" viewBox="0 0 414 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M0 31.6447L13.8 35.6003C27.6 39.5559 55.2 47.4671 82.8 48.7774C110.4 50.1866 138 44.7476 165.6 36.9106C193.2 28.9253 220.8 18.5418 248.4 14.5121C276 10.6307 303.6 13.1029 331.2 17.1327C358.8 21.0141 386.4 26.453 400.2 28.9994L414 31.6447V0H400.2C386.4 0 358.8 0 331.2 0C303.6 0 276 0 248.4 0C220.8 0 193.2 0 165.6 0C138 0 110.4 0 82.8 0C55.2 0 27.6 0 13.8 0H0V31.6447Z"
+                        fill="#051638" />
+                </svg>
+            </div>
+        </div>
+        <!-- Menu Button -->
+        <div class="menu-btn" onclick="open_menu();">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <!-- Side Menu -->
+        <div class="form-backdrop" id="nav-menu" style="display: none">
+            <div id="menu" onclick="z=0;close_menu();">
+                <div class="menu-content w3-animate-left" onclick="keep_menu_open();z=1;">
+                    <div class="top-bar">
+                        <div class="menu-btn" onclick="z=0;close_menu();">
+                            <div class="line"></div>
+                            <div class="line"></div>
+                        </div>
+                    </div>
+                    <ul class="w3-animate-left">
+                        <li class="menu-link selected"><a href="/">Home</a></li>
+                        <li class="menu-link"><a href="/contact">Contact Us</a></li>
+                        <li class="menu-link"><a href="/about">About Us</a></li>
+                    </ul>
+                    <a href="/privacy">Privacy Policy</a>
+                    <a href="/terms">Terms & conditions</a>
+                </div>
+            </div>
+        </div>
+        <script>
+            var menu = document.querySelector("#menu");
+            var cointainer = document.querySelector(".cointainer");
+            window.addEventListener("load", () => {
+                let widthNow = cointainer.clientWidth;
+                menu.setAttribute("style", `width:${widthNow}px;`);
+            });
+            window.addEventListener("resize", () => {
+                let widthNow = cointainer.clientWidth;
+                menu.setAttribute("style", `width:${widthNow}px;`);
+            });
+        </script>
+        <h1>Select Category</h1>
+        <div class="cards">
+            <div class="category_card">
+                <h2 class="category_name">
+                    Action
+                </h2>
+            </div>
+            <div class="category_card">
+                <h2 class="category_name">
+                    Adventure
+                </h2>
+            </div>
+            <div class="category_card">
+                <h2 class="category_name">
+                    Open World
+                </h2>
+            </div>
+        </div>
+        </div>
+</body>
+</html>
